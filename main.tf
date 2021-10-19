@@ -77,9 +77,7 @@ resource "google_dataproc_cluster" "cluster-second" {
       kms_key_name = ""
     }
 
-    endpoint_config {
-      enable_http_port_access = false
-    }
+
   }
   depends_on = [google_service_account.dataproc-sa, google_project_iam_member.dataproc-worker]
 }
@@ -141,8 +139,6 @@ resource "google_dataproc_cluster" "cluster-wsae" {
       kms_key_name = ""
     }
 
-    endpoint_config {
-      enable_http_port_access = false
-    }
+
   }
 }
