@@ -1,0 +1,116 @@
+# This policy uses the Sentinel tfplan/v2 import to require that
+# all GCE dataproc instances following all the policies
+
+# Note that the comparison is case-sensitive.
+
+import "strings"
+import "types"
+import "tfplan-functions" as plan
+
+# Get all GCE dataproc instances
+allDPInstances = plan.find_resources("google_dataproc_cluster")
+
+# Filter to GCE dataproc instances with violations
+# Warnings will be printed for all violations since the last parameter is true
+
+//**********************Variables to be used*********************************
+key = ""
+selected_node = null
+
+messages = {}
+//***************************************************************************
+
+check_key_existance = func(map_data, key) {
+	keys_data = keys(map_data)
+	result = false
+
+	for keys_data as key_data {
+		if key_data is key {
+			result = true
+			return result
+		}
+	}
+
+	return result
+}
+
+create_sub_main_key_list = func(main_list, sub_list, address){
+	if check_key_existance(main_list, address) is not true {
+		main_list[address] = []
+	}
+	if check_key_existance(sub_list, address) is not true {
+		sub_list[address] = []
+	}
+
+	return null
+}
+
+check_cluster_config = func(address, rc) {
+	key = "cluster_config"
+	selected_node = plan.evaluate_attribute(rc, key)
+	
+	if types.type_of(selected_node) is "null" {
+		return plan.to_string(address) + " does not have "+ key +" defined"
+	} else {
+		return null
+	}
+}
+
+check_endpoint_config = func(address, rc) {
+	key = "endpoint_config"
+
+	selected_node = plan.evaluate_attribute(rc, "cluster_config.0." + key)
+	
+	if types.type_of(selected_node) is not "null" {
+
+	//*******************validating enable_http_port_access node*****************************		
+		key = "enable_http_port_access"
+		selected_node = plan.evaluate_attribute(rc, "cluster_config.0.endpoint_config.0." + key)
+		
+		if  selected_node {
+			return "Https port's access needs to be disabled for the dataproc services, please set value false to make it disabled"
+		} else {
+			return null
+		}		
+	} else {
+		return null
+	}	
+}
+
+//*******************validating cluster config && endpoint_config node************************************
+messages_http = {}
+for allDPInstances as address, rc {
+ 	message = null
+ 	message = check_cluster_config(address, rc)
+
+ 	if types.type_of(message) is not "null"{
+
+		create_sub_main_key_list( messages, messages_http, address)
+
+ 		append(messages_http[address],message)
+  		append(messages[address],message)
+
+  	} else {
+
+  		message = check_endpoint_config(address, rc)
+
+  		if types.type_of(message) is not "null"{
+			  
+			create_sub_main_key_list( messages, messages_http, address)
+
+  			append(messages_http[address],message)
+  			append(messages[address],message)
+
+  		}
+  	}
+}
+//********************************************************************************************************
+
+GCP_DATAPROC_HTTPS = rule {
+	length(messages_http) is 0
+}
+
+# Main rule
+print(messages)
+
+main = rule { GCP_DATAPROC_HTTPS }
