@@ -78,7 +78,7 @@ resource "google_dataproc_cluster" "cluster-second" {
     }
 
     endpoint_config {
-      enable_http_port_access = 
+      enable_http_port_access = false
     }
   }
   depends_on = [google_service_account.dataproc-sa, google_project_iam_member.dataproc-worker]
@@ -142,7 +142,7 @@ resource "google_dataproc_cluster" "cluster-wsae" {
     }
 
     endpoint_config {
-      enable_http_port_access = 
+      enable_http_port_access = false
     }
   }
 }
