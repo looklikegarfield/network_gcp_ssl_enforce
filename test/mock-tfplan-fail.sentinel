@@ -25,7 +25,7 @@ planned_values = {
 						],
 						"endpoint_config": [
 							{
-								"enable_http_port_access": false,
+								"enable_http_port_access": true,
 							},
 						],
 						"gce_cluster_config": [
@@ -113,7 +113,7 @@ planned_values = {
 						],
 						"endpoint_config": [
 							{
-								"enable_http_port_access": false,
+								"enable_http_port_access": true,
 							},
 						],
 						"gce_cluster_config": [
@@ -246,7 +246,7 @@ resource_changes = {
 						],
 						"endpoint_config": [
 							{
-								"enable_http_port_access": false,
+								"enable_http_port_access": true,
 							},
 						],
 						"gce_cluster_config": [
@@ -406,7 +406,7 @@ resource_changes = {
 						],
 						"endpoint_config": [
 							{
-								"enable_http_port_access": false,
+								"enable_http_port_access": true,
 							},
 						],
 						"gce_cluster_config": [
@@ -659,7 +659,7 @@ raw = {
 								"endpoint_config": [
 									{
 										"enable_http_port_access": {
-											"constant_value": false,
+											"constant_value": true,
 										},
 									},
 								],
@@ -779,7 +779,7 @@ raw = {
 								"endpoint_config": [
 									{
 										"enable_http_port_access": {
-											"constant_value": false,
+											"constant_value": true,
 										},
 									},
 								],
@@ -1013,7 +1013,7 @@ raw = {
 								],
 								"endpoint_config": [
 									{
-										"enable_http_port_access": false,
+										"enable_http_port_access": true,
 									},
 								],
 								"gce_cluster_config": [
@@ -1154,7 +1154,7 @@ raw = {
 								],
 								"endpoint_config": [
 									{
-										"enable_http_port_access": false,
+										"enable_http_port_access": true,
 									},
 								],
 								"gce_cluster_config": [
@@ -1275,7 +1275,7 @@ raw = {
 							],
 							"endpoint_config": [
 								{
-									"enable_http_port_access": false,
+									"enable_http_port_access": true,
 								},
 							],
 							"gce_cluster_config": [
@@ -1492,7 +1492,7 @@ raw = {
 							],
 							"endpoint_config": [
 								{
-									"enable_http_port_access": false,
+									"enable_http_port_access": true,
 								},
 							],
 							"gce_cluster_config": [
