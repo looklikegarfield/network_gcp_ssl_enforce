@@ -1,5 +1,5 @@
 module "tfplan-functions" {
-  source = "../tfplan-functions.sentinel"
+  source = "../../tfplan-functions.sentinel"
 }
 
 mock "tfplan/v2" {
