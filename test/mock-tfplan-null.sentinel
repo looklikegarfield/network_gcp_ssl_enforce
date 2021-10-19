@@ -23,11 +23,6 @@ planned_values = {
 								"kms_key_name": "",
 							},
 						],
-						"endpoint_config": [
-							{
-								"enable_http_port_access": false,
-							},
-						],
 						"gce_cluster_config": [
 							{
 								"internal_ip_only": true,
@@ -111,11 +106,6 @@ planned_values = {
 								"kms_key_name": "",
 							},
 						],
-						"endpoint_config": [
-							{
-								"enable_http_port_access": false,
-							},
-						],
 						"gce_cluster_config": [
 							{
 								"internal_ip_only": true,
@@ -173,7 +163,7 @@ planned_values = {
 				},
 				"name":     "cluster-wsae",
 				"project":  "REDACTED_SENSITIVE",
-				"region":   "us-east1",
+				"region":   "us-west1",
 				"timeouts": null,
 			},
 		},
@@ -242,11 +232,6 @@ resource_changes = {
 						"encryption_config": [
 							{
 								"kms_key_name": "",
-							},
-						],
-						"endpoint_config": [
-							{
-								"enable_http_port_access": false,
 							},
 						],
 						"gce_cluster_config": [
@@ -319,11 +304,7 @@ resource_changes = {
 						"encryption_config": [
 							{},
 						],
-						"endpoint_config": [
-							{
-								"http_ports": true,
-							},
-						],
+						"endpoint_config": true,
 						"gce_cluster_config": [
 							{
 								"network":         true,
@@ -404,11 +385,6 @@ resource_changes = {
 								"kms_key_name": "",
 							},
 						],
-						"endpoint_config": [
-							{
-								"enable_http_port_access": false,
-							},
-						],
 						"gce_cluster_config": [
 							{
 								"internal_ip_only": true,
@@ -466,7 +442,7 @@ resource_changes = {
 				},
 				"name":     "cluster-wsae",
 				"project":  "REDACTED_SENSITIVE",
-				"region":   "us-east1",
+				"region":   "us-west1",
 				"timeouts": null,
 			},
 			"after_unknown": {
@@ -477,11 +453,7 @@ resource_changes = {
 						"encryption_config": [
 							{},
 						],
-						"endpoint_config": [
-							{
-								"http_ports": true,
-							},
-						],
+						"endpoint_config": true,
 						"gce_cluster_config": [
 							{
 								"network":                  true,
@@ -656,13 +628,6 @@ raw = {
 										},
 									},
 								],
-								"endpoint_config": [
-									{
-										"enable_http_port_access": {
-											"constant_value": false,
-										},
-									},
-								],
 								"gce_cluster_config": [
 									{
 										"internal_ip_only": {
@@ -776,13 +741,6 @@ raw = {
 										},
 									},
 								],
-								"endpoint_config": [
-									{
-										"enable_http_port_access": {
-											"constant_value": false,
-										},
-									},
-								],
 								"gce_cluster_config": [
 									{
 										"internal_ip_only": {
@@ -867,7 +825,7 @@ raw = {
 							],
 						},
 						"region": {
-							"constant_value": "us-east1",
+							"constant_value": "us-west1",
 						},
 					},
 					"mode":                "managed",
@@ -949,11 +907,7 @@ raw = {
 								"encryption_config": [
 									{},
 								],
-								"endpoint_config": [
-									{
-										"http_ports": {},
-									},
-								],
+								"endpoint_config": [],
 								"gce_cluster_config": [
 									{
 										"service_account_scopes": [
@@ -1009,11 +963,6 @@ raw = {
 								"encryption_config": [
 									{
 										"kms_key_name": "",
-									},
-								],
-								"endpoint_config": [
-									{
-										"enable_http_port_access": false,
 									},
 								],
 								"gce_cluster_config": [
@@ -1092,11 +1041,7 @@ raw = {
 								"encryption_config": [
 									{},
 								],
-								"endpoint_config": [
-									{
-										"http_ports": {},
-									},
-								],
+								"endpoint_config": [],
 								"gce_cluster_config": [
 									{
 										"service_account_scopes":   [],
@@ -1150,11 +1095,6 @@ raw = {
 								"encryption_config": [
 									{
 										"kms_key_name": "",
-									},
-								],
-								"endpoint_config": [
-									{
-										"enable_http_port_access": false,
 									},
 								],
 								"gce_cluster_config": [
@@ -1214,7 +1154,7 @@ raw = {
 						},
 						"name":     "cluster-wsae",
 						"project":  "REDACTED_SENSITIVE",
-						"region":   "us-east1",
+						"region":   "us-west1",
 						"timeouts": null,
 					},
 				},
@@ -1271,11 +1211,6 @@ raw = {
 							"encryption_config": [
 								{
 									"kms_key_name": "",
-								},
-							],
-							"endpoint_config": [
-								{
-									"enable_http_port_access": false,
 								},
 							],
 							"gce_cluster_config": [
@@ -1347,11 +1282,7 @@ raw = {
 							"encryption_config": [
 								{},
 							],
-							"endpoint_config": [
-								{
-									"http_ports": {},
-								},
-							],
+							"endpoint_config": [],
 							"gce_cluster_config": [
 								{
 									"service_account_scopes": [
@@ -1407,11 +1338,7 @@ raw = {
 							"encryption_config": [
 								{},
 							],
-							"endpoint_config": [
-								{
-									"http_ports": true,
-								},
-							],
+							"endpoint_config": true,
 							"gce_cluster_config": [
 								{
 									"network":         true,
@@ -1490,11 +1417,6 @@ raw = {
 									"kms_key_name": "",
 								},
 							],
-							"endpoint_config": [
-								{
-									"enable_http_port_access": false,
-								},
-							],
 							"gce_cluster_config": [
 								{
 									"internal_ip_only": true,
@@ -1552,7 +1474,7 @@ raw = {
 					},
 					"name":     "cluster-wsae",
 					"project":  "REDACTED_SENSITIVE",
-					"region":   "us-east1",
+					"region":   "us-west1",
 					"timeouts": null,
 				},
 				"after_sensitive": {
@@ -1562,11 +1484,7 @@ raw = {
 							"encryption_config": [
 								{},
 							],
-							"endpoint_config": [
-								{
-									"http_ports": {},
-								},
-							],
+							"endpoint_config": [],
 							"gce_cluster_config": [
 								{
 									"service_account_scopes":   [],
@@ -1620,11 +1538,7 @@ raw = {
 							"encryption_config": [
 								{},
 							],
-							"endpoint_config": [
-								{
-									"http_ports": true,
-								},
-							],
+							"endpoint_config": true,
 							"gce_cluster_config": [
 								{
 									"network":                  true,
