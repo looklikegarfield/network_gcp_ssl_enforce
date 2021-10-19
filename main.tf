@@ -78,7 +78,7 @@ resource "google_dataproc_cluster" "cluster-second" {
     }
 
     endpoint_config {
-      enable_http_port_access = true
+      enable_http_port_access = 
     }
   }
   depends_on = [google_service_account.dataproc-sa, google_project_iam_member.dataproc-worker]
@@ -88,7 +88,7 @@ resource "google_dataproc_cluster" "cluster-wsae" {
   name     = "cluster-wsae"
   provider = google-beta
   project  = var.project_id
-  region   = "us-east1"
+  region   = "us-west1"
 
   graceful_decommission_timeout = "120s"
 
@@ -142,7 +142,7 @@ resource "google_dataproc_cluster" "cluster-wsae" {
     }
 
     endpoint_config {
-      enable_http_port_access = true
+      enable_http_port_access = 
     }
   }
 }
